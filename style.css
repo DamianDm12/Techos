@@ -1,0 +1,730 @@
+/* Slider debajo del carrusel */
+.carousel-slider {
+    width: 100%;
+    margin: 18px auto 0 auto;
+    display: block;
+     font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    accent-color: var(--secondary-gray);
+    height: 8px;
+    border-radius: 4px;
+}
+/* Barra de progreso del carrusel */
+.carousel-progress-bar {
+    width: 100%;
+     font-size: 1.08em;
+     letter-spacing: 0.01em;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    margin: 18px auto 0 auto;
+    position: relative;
+     font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+     font-weight: 800;
+     letter-spacing: 0.03em;
+     text-shadow: 0 2px 8px rgba(44,62,80,0.08);
+     transition: color 0.3s, text-shadow 0.3s;
+    overflow: hidden;
+}
+.carousel-progress {
+    height: 100%;
+    background: var(--secondary-gray);
+    border-radius: 4px;
+     font-weight: 900;
+     letter-spacing: 0.04em;
+    width: 0%;
+    transition: width 0.3s;
+}
+.carousel-pagination {
+     font-size: 1.08em;
+     font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+     color: #3a3a3a;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 8px;
+}
+/* Variables de Color */
+:root {
+    --primary-blue: #2C3E50; 
+     font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+     font-weight: 600;
+     letter-spacing: 0.02em;
+     transition: color 0.2s;
+    --secondary-gray: #7F8C8D; 
+    --accent-orange: #E67E22; 
+    --light-bg: #ECF0F1; 
+    --white: #FFFFFF;
+    --text-color: #34495E; 
+}
+
+/* Reset Básico y Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+     font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+     font-weight: 700;
+     box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+     letter-spacing: 0.03em;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+     box-shadow: 0 4px 16px rgba(230,103,34,0.12);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+h1, h2, h3 {
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-blue);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent-orange);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn:hover {
+    background-color: #D35400; 
+}
+
+.btn-secondary {
+    background-color: var(--primary-blue);
+}
+
+.btn-secondary:hover {
+    background-color: #24313F;
+}
+
+/* Header/Hero Section */
+.hero {
+    background: url('banner.jpg') no-repeat center center/cover;
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0 150px 0;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ESTILOS DE LA NAVEGACIÓN DENTRO DEL HERO */
+.nav-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.nav-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-content ul li {
+    display: inline;
+    margin-left: 25px;
+}
+
+.nav-content ul li a {
+    color: var(--white);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-content ul li a:hover {
+    color: var(--accent-orange);
+}
+/* FIN ESTILOS DE NAVEGACIÓN */
+
+.hero h1 {
+    font-size: 3.5em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+}
+
+.hero .contact-hero {
+    margin-top: 30px;
+    font-size: 1.1em;
+}
+
+.hero .contact-hero span {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.hero .contact-hero i {
+    margin-right: 8px;
+    color: var(--accent-orange);
+}
+
+/* Services Section */
+.services {
+    background-color: var(--light-bg); /* Fondo más claro para los recuadros */
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+/* --- ESTILOS MEJORADOS PARA LOS ITEMS DE SERVICIO (FLUOR) --- */
+.service-item {
+    background-color: var(--white); /* Fondo blanco para contraste */
+    padding: 30px;
+    border-radius: 12px; /* Esquinas más redondeadas */
+    /* Múltiples sombras para el efecto "brillo flúor" */
+    box-shadow: 
+        0 8px 20px rgba(0,0,0,0.12), /* Sombra principal más suave */
+        0 0 0 2px rgba(255, 255, 255, 0.8), /* Borde interior blanco/claro */
+        0 0 0 4px #4DFFB8; /* Primer "brillo" flúor (verde menta) */
+    transition: all 0.4s ease-in-out; /* Transición más completa */
+    border: 1px solid transparent; 
+    position: relative; 
+    overflow: hidden; 
+}
+
+.service-item:hover {
+    transform: translateY(-12px) scale(1.02); /* Mayor elevación y un ligero crecimiento */
+    box-shadow: 
+        0 15px 30px rgba(0,0,0,0.2), /* Sombra principal más pronunciada al hover */
+        0 0 0 2px rgba(255, 255, 255, 0.9), /* Borde interior */
+        0 0 0 6px #053b3b, /* Brillo 2 (Cyan/Aqua) */
+    }
+
+.service-item h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    font-weight: 700;
+}
+
+.service-item i {
+    font-size: 3.5em; /* Iconos más grandes */
+    color: var(--accent-orange); /* Color naranja para iconos */
+    margin-bottom: 25px;
+    transition: color 0.3s ease;
+}
+
+.service-item:hover i {
+    color: #3c00ff; /* Icono dorado al hover para más contraste */
+}
+
+.service-item p {
+    color: var(--text-color);
+    font-size: 0.95em;
+    line-height: 1.7;
+}
+/* --- FIN ESTILOS FLUOR --- */
+
+
+/* Portfolio Section (Carrusel) */
+.portfolio {
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+.carousel-wrapper {
+    position: relative; 
+    max-width: 1200px; 
+    margin: 0 auto 30px auto;
+    overflow: hidden; 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out; 
+    margin-right: -10px; 
+}
+
+/* Contenedor de cada ítem (imagen o video) */
+.media-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    width: 24.5%; 
+    height: 250px; 
+    flex-shrink: 0; 
+    margin-right: 10px; 
+}
+
+/* Asegura que el contenido multimedia ocupe el 100% del contenedor */
+.media-item img, .media-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block; 
+}
+
+
+/* Íconos de superposición para indicar que son clickeables */
+.overlay-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    color: var(--white);
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.media-item:hover .overlay-icon {
+    opacity: 1;
+}
+
+/* Estilo específico para el ícono de video (Play) - Ahora ya no se usa el de Play, usamos el de zoom */
+.video-icon {
+    color: var(--accent-orange);
+    font-size: 4em;
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 50%; 
+    padding: 15px 20px; 
+}
+
+
+/* Flechas de navegación: Posición absoluta respecto a .carousel-wrapper */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--white);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 10;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-nav:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-nav.prev {
+    left: 10px;
+}
+
+.carousel-nav.next {
+    right: 10px;
+}
+
+/* Paginación (puntos o números) */
+.carousel-pagination {
+    position: static;
+    margin: 20px auto 0 auto;
+    display: flex; /* Asegura que se muestre como puntos */
+    justify-content: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.pagination-dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-dot.active {
+    background-color: var(--accent-orange);
+}
+
+.carousel-info {
+    font-style: italic;
+    color: var(--secondary-gray);
+    margin-bottom: 30px;
+    margin-top: 20px; 
+}
+
+/* ---------------------------------- */
+/* Estilos del Modal         */
+/* ---------------------------------- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    margin: 0 auto;
+    width: 90vw;
+    max-width: 900px; 
+    position: relative;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenido multimedia del modal: imagen o video */
+.modal-content img, .modal-content video {
+    display: block;
+    max-width: 100%;
+    max-height: 85vh; 
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+/* Botón de cerrar (la 'x') */
+.close-btn {
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    z-index: 2010;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    opacity: 1;
+}
+
+/* About Section */
+.about {
+    background-color: var(--white);
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 40px;
+    align-items: center;
+}
+
+.about-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-text ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.about-text ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.about-text ul li i {
+    color: var(--accent-orange);
+    margin-right: 10px;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-image .image-caption {
+    font-style: italic;
+    margin-top: 10px;
+    color: var(--secondary-gray);
+}
+
+/* Contact Section */
+.contact {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-align: center;
+}
+
+.contact h2, .contact p {
+    color: var(--white);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--text-color);
+    font-size: 1em;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #555;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: var(--light-bg);
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+/* --- ESTILOS DE GALERÍA COMPLETA --- */
+
+/* Contenedor de la cuadrícula de la galería completa */
+.full-gallery-grid {
+    display: grid;
+    /* Crear columnas adaptables, mínimo 280px. Se adapta de 4 columnas en adelante. */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; /* Espacio entre los ítems */
+    margin-top: 40px;
+}
+
+/* Ítems de la cuadrícula (reutilizando media-item del carrusel) */
+.full-gallery-grid .media-item {
+    width: 100%; /* Ocupa el 100% de la columna de la cuadrícula */
+    height: 250px; 
+    margin-right: 0; /* Anula el margin-right del carrusel */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    display: block; 
+}
+
+
+/* --- ESTILOS AGREGADOS PARA WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366; /* Color de WhatsApp */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+}
+
+/* Estilo para que el botón de envío del formulario de contacto también se vea de WhatsApp */
+#contacto .contact-form button.btn {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+}
+
+#contacto .contact-form button.btn:hover {
+    background-color: #128c7e;
+}
+/* --- FIN ESTILOS AGREGADOS PARA WHATSAPP --- */
+
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .hero {
+        padding: 100px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+        margin-top: 20px;
+    }
+
+    .hero p {
+        font-size: 1.1em;
+    }
+
+    .hero .contact-hero span {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    /* RESPONSIVIDAD DEL NUEVO NAV */
+    .nav-content {
+        position: relative;
+        transform: none;
+        left: auto;
+        top: auto;
+        flex-direction: column;
+        margin-bottom: 20px;
+        justify-content: center; 
+    }
+    
+    .nav-content ul {
+        margin-top: 15px;
+        padding: 0;
+    }
+
+    .nav-content ul li {
+        margin: 0 10px;
+    }
+    /* FIN RESPONSIVIDAD DEL NUEVO NAV */
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        order: -1; 
+        margin-bottom: 30px;
+    }
+
+    .carousel-wrapper {
+        max-width: 100%;
+    }
+    
+    .media-item {
+        width: 49.5%;
+        height: 200px;
+    }
+    
+    /* ESTILO DE CUADRÍCULA RESPONSIVE PARA GALERÍA COMPLETA */
+    .full-gallery-grid {
+        /* En pantallas más pequeñas, solo dos columnas de 180px como mínimo */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    
+    .full-gallery-grid .media-item {
+        height: 200px;
+    }
+
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .nav-content ul li {
+        margin: 0 5px;
+    }
+
+    .service-item {
+        padding: 20px;
+    }
+}
